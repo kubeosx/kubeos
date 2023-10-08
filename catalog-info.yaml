@@ -11,19 +11,3 @@ spec:
   owner: infrastructure
   lifecycle: experimental
 
----
-
-apiVersion: backstage.io/v1alpha1
-kind: Component
-metadata:
-  name: kubeos-dotnet-template
-  description: An example of a .net 7 CI K8 template.
-  annotations:
-    github.com/project-slug: kubeosx/kubeos-dotnet-template
-    backstage.io/techdocs-ref: dir:.
-spec:
-  type: website
-  owner: infrastructure
-  lifecycle: experimental
-  dependsOn: ['component:kubeos']
-
