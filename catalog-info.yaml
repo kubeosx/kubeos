@@ -25,4 +25,5 @@ spec:
   type: website
   owner: infrastructure
   lifecycle: experimental
+  dependsOn: ['component:kubeos']
 
