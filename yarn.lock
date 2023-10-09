@@ -3529,6 +3529,23 @@
     react-use "^17.2.4"
     zen-observable "^0.10.0"
 
+"@backstage/plugin-vault@^0.1.19":
+  version "0.1.19"
+  resolved "https://registry.yarnpkg.com/@backstage/plugin-vault/-/plugin-vault-0.1.19.tgz#d0f3acbe924ca8cf1bdb04bc3922198080500e94"
+  integrity sha512-ADqq1HRL21zBlnfdhdzw5SRolEQwGO1VEO8Rvh5ZoCeZXaff1XXXRjGicEg67QC6iMDNxM+isFfkrEOAiO+lGg==
+  dependencies:
+    "@backstage/catalog-model" "^1.4.2"
+    "@backstage/core-components" "^0.13.5"
+    "@backstage/core-plugin-api" "^1.6.0"
+    "@backstage/errors" "^1.2.2"
+    "@backstage/plugin-catalog-react" "^1.8.4"
+    "@backstage/theme" "^0.4.2"
+    "@material-ui/core" "^4.12.2"
+    "@material-ui/icons" "^4.9.1"
+    "@material-ui/lab" "4.0.0-alpha.61"
+    "@types/react" "^16.13.1 || ^17.0.0"
+    react-use "^17.2.4"
+
 "@backstage/release-manifests@^0.0.10":
   version "0.0.10"
   resolved "https://registry.yarnpkg.com/@backstage/release-manifests/-/release-manifests-0.0.10.tgz#10f0c23cd1a00ca9b2ac5bf5c199592ba0abedae"
@@ -9119,6 +9136,7 @@ anymatch@^3.0.3, anymatch@~3.1.2:
     "@backstage/theme" "^0.4.2"
     "@material-ui/core" "^4.12.2"
     "@material-ui/icons" "^4.9.1"
+    "@roadiehq/backstage-plugin-prometheus" "^2.7.0"
     "@weaveworksoss/backstage-plugin-flux" "^0.8.3"
     history "^5.0.0"
     react "^17.0.2"

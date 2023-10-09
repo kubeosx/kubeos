@@ -66,6 +66,9 @@ import {
   EntityPrometheusAlertCard,  
   EntityPrometheusGraphCard,
 } from '@roadiehq/backstage-plugin-prometheus';
+import { EntityVaultCard } from '@backstage/plugin-vault';
+
+
 const techdocsContent = (
   <EntityTechdocsContent>
     <TechDocsAddons>
@@ -147,7 +150,10 @@ const overviewContent = (
     {/* <Grid item md={8}>
       <EntityPrometheusAlertCard />
     </Grid> */}
-        <Grid item md={12} xs={12}>
+    <Grid item md={6} xs={12}>
+      <EntityVaultCard />
+    </Grid>
+    <Grid item md={12} xs={12}>
       <EntityHasSubcomponentsCard variant="gridItem" />
     </Grid>
     <Grid item md={6}>
