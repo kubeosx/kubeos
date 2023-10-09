@@ -26,3 +26,5 @@ spec:
     - ./departments.yaml
     - ./teams.yaml
     - ./users.yaml
+    - ./systems.yaml
+    - ./domains.yaml

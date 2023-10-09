@@ -6,6 +6,10 @@ metadata:
   annotations:
     github.com/project-slug: kubeosx/kubeos
     backstage.io/techdocs-ref: dir:.
+  tags:
+    - backstage
+    - idp
+    - kubeos
 spec:
   type: website
   owner: platform-engineering-team

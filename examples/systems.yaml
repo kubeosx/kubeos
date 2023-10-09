@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: kubeos-idp
+  description: Everything related to kubeos-idp
+  tags:
+    - kubeos-idp
+spec:
+  owner: platform-engineering-team
+  domain: internal-developer-platform
