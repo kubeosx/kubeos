@@ -2,8 +2,11 @@
 apiVersion: backstage.io/v1alpha1
 kind: Location
 metadata:
-  name: acme-corp-org-groups
-  description: A collection of all Backstage example Groups
+  name: kubeosx-location
+  description: A collection of all Kubeos Initial requirement
+  tags:
+    - location
+    - org setup
 spec:
   targets:
     - ./examples/org.yaml
