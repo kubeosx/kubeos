@@ -6,7 +6,7 @@ metadata:
   annotations:
     github.com/project-slug: kubeosx/kubeos
     backstage.io/techdocs-ref: dir:.
-    vault.io/secrets-path: 'kubeos/github-token'
+    vault.io/secrets-path: 'test'
   tags:
     - backstage
     - idp
