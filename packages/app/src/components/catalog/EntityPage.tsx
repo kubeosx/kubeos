@@ -59,8 +59,13 @@ import { TechDocsAddons } from '@backstage/plugin-techdocs-react';
 import { ReportIssue } from '@backstage/plugin-techdocs-module-addons-contrib';
 import { EntityKubernetesContent } from '@backstage/plugin-kubernetes';
 import { EntityFluxGitRepositoriesCard,EntityFluxKustomizationsCard } from '@weaveworksoss/backstage-plugin-flux';
-
-
+import {
+  EntityPrometheusContent,
+} from '@roadiehq/backstage-plugin-prometheus';
+import {
+  EntityPrometheusAlertCard,  
+  EntityPrometheusGraphCard,
+} from '@roadiehq/backstage-plugin-prometheus';
 const techdocsContent = (
   <EntityTechdocsContent>
     <TechDocsAddons>
@@ -133,18 +138,25 @@ const overviewContent = (
     <Grid item md={6} xs={12}>
       <EntityCatalogGraphCard variant="gridItem" height={400} />
     </Grid>
-    <Grid item md={4} xs={12}>
+    {/* <Grid item md={4} xs={12}>
       <EntityFluxGitRepositoriesCard />
     </Grid>
     <Grid item md={4} xs={12}>
       <EntityFluxKustomizationsCard />
-    </Grid>
-    <Grid item md={4} xs={12}>
-      <EntityLinksCard />
-    </Grid>
-    <Grid item md={8} xs={12}>
+    </Grid> */}
+    {/* <Grid item md={8}>
+      <EntityPrometheusAlertCard />
+    </Grid> */}
+        <Grid item md={12} xs={12}>
       <EntityHasSubcomponentsCard variant="gridItem" />
     </Grid>
+    <Grid item md={6}>
+      <EntityPrometheusGraphCard />
+    </Grid>
+    <Grid item md={6} xs={12}>
+      <EntityLinksCard />
+    </Grid>
+
   </Grid>
 );
 
@@ -161,7 +173,9 @@ const serviceEntityPage = (
     <EntityLayout.Route path="/kubernetes" title="Kubernetes">
       <EntityKubernetesContent refreshIntervalMs={30000} />
     </EntityLayout.Route>
-
+    <EntityLayout.Route path="/prometheus" title="Prometheus">
+      <EntityPrometheusContent />
+    </EntityLayout.Route>
     <EntityLayout.Route path="/api" title="API">
       <Grid container spacing={3} alignItems="stretch">
         <Grid item md={6}>

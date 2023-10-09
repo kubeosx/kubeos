@@ -8,6 +8,6 @@ metadata:
     backstage.io/techdocs-ref: dir:.
 spec:
   type: website
-  owner: infrastructure
+  owner: platform-engineering-team
   lifecycle: experimental
 

@@ -1,0 +1,34 @@
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: infrastructure
+  description: The infra department
+spec:
+  type: department
+  # Intentional no profile for testing
+  parent: acme-corp
+  children: [platform-engineering-team]
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: product
+  description: The infra department
+spec:
+  type: department
+  # Intentional no profile for testing
+  parent: acme-corp
+  children: [backend-team, frontend-team]
+---
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: marketing
+  description: The infra department
+spec:
+  type: department
+  # Intentional no profile for testing
+  parent: acme-corp
+  children: [facebook-team]

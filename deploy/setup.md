@@ -7,7 +7,7 @@ flux check --pre
 
 flux bootstrap github \
   --owner=$GITHUB_USER \
-  --repository=cloud-cluster \
+  --repository=kubeos-cluster \
   --branch=main \
   --path=./clusters/dev \
   --personal

@@ -1,17 +1,28 @@
----
-# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-user
-apiVersion: backstage.io/v1alpha1
-kind: User
-metadata:
-  name: guest
-spec:
-  memberOf: [guests]
----
-# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-group
 apiVersion: backstage.io/v1alpha1
 kind: Group
 metadata:
-  name: guests
+  name: kubeos-corp
+  description: The kupeos-corp organization
+  links:
+    - url: https://github.com/kubeosx
+      title: Website
+    - url: https://meta.wikimedia.org/wiki/
+      title: Intranet
 spec:
-  type: team
-  children: []
+  type: organization
+  profile:
+    displayName: Kubeosx
+    email: sourabh.rustagi@hotmail.com
+    picture: https://avatars.githubusercontent.com/u/147348784?s=400&v=4
+  children: [infrastructure, product, marketing]
+---
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: acme-corp-org-groups
+  description: A collection of all Backstage example Groups
+spec:
+  targets:
+    - ./departments.yaml
+    - ./teams.yaml
+    - ./users.yaml
