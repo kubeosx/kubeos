@@ -1,0 +1,15 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: acme-corp-org-groups
+  description: A collection of all Backstage example Groups
+spec:
+  targets:
+    - ./examples/org.yaml
+    - ./examples/departments.yaml
+    - ./examples/teams.yaml
+    - ./examples/users.yaml
+    - ./examples/systems.yaml
+    - ./examples/domains.yaml
+    - ./catalog-info.yaml

@@ -15,16 +15,4 @@ spec:
     email: sourabh.rustagi@hotmail.com
     picture: https://avatars.githubusercontent.com/u/147348784?s=400&v=4
   children: [infrastructure, product, marketing]
----
-apiVersion: backstage.io/v1alpha1
-kind: Location
-metadata:
-  name: acme-corp-org-groups
-  description: A collection of all Backstage example Groups
-spec:
-  targets:
-    - ./departments.yaml
-    - ./teams.yaml
-    - ./users.yaml
-    - ./systems.yaml
-    - ./domains.yaml
+
