@@ -7,4 +7,16 @@ metadata:
     - kubeos-idp
 spec:
   owner: platform-engineering-team
-  domain: internal-developer-platform
+  domain: dev-experience
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: shopping-app
+  description: Everything related to kubeos-idp
+  tags:
+    - shopping-app
+spec:
+  owner: product
+  domain: core-services

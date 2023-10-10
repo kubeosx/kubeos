@@ -1,8 +1,8 @@
 apiVersion: backstage.io/v1alpha1
 kind: Domain
 metadata:
-  name: internal-developer-platform
-  description: Everything related to kubeos
+  name: dev-experience
+  description: Everything related to Dev Experience
   title: Internal Developer Platform
   links:
     - url: http://example.com/domain/artists/
@@ -12,3 +12,18 @@ metadata:
       icon: dashboard
 spec:
   owner: platform-engineering-team
+---
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: core-services
+  description: Everything related to core-services
+  title: Core Services
+  links:
+    - url: http://example.com/domain/artists/
+      title: Domain Readme
+    - url: http://example.com/domains/artists/dashboard
+      title: Domain Metrics Dashboard
+      icon: dashboard
+spec:
+  owner: product

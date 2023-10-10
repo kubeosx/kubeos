@@ -67,6 +67,8 @@ import {
   EntityPrometheusGraphCard,
 } from '@roadiehq/backstage-plugin-prometheus';
 import { EntityVaultCard } from '@backstage/plugin-vault';
+import { EntitySecurityInsightsContent } from '@roadiehq/backstage-plugin-security-insights';
+import { EntityGithubInsightsContent } from '@roadiehq/backstage-plugin-github-insights';
 
 
 const techdocsContent = (
@@ -135,11 +137,17 @@ const entityWarningContent = (
 const overviewContent = (
   <Grid container spacing={3} alignItems="stretch">
     {entityWarningContent}
+    <Grid item md={12} xs={12}>
+      <EntityLinksCard />
+    </Grid>
     <Grid item md={6}>
       <EntityAboutCard variant="gridItem" />
     </Grid>
     <Grid item md={6} xs={12}>
       <EntityCatalogGraphCard variant="gridItem" height={400} />
+    </Grid>
+    <Grid item md={12} xs={12}>
+      <EntityHasSubcomponentsCard variant="gridItem" />
     </Grid>
     {/* <Grid item md={4} xs={12}>
       <EntityFluxGitRepositoriesCard />
@@ -153,35 +161,40 @@ const overviewContent = (
     <Grid item md={6} xs={12}>
       <EntityVaultCard />
     </Grid>
-    <Grid item md={12} xs={12}>
-      <EntityHasSubcomponentsCard variant="gridItem" />
-    </Grid>
+
     <Grid item md={6}>
       <EntityPrometheusGraphCard />
     </Grid>
-    <Grid item md={6} xs={12}>
-      <EntityLinksCard />
-    </Grid>
+
 
   </Grid>
 );
 
 const serviceEntityPage = (
   <EntityLayout>
+    
     <EntityLayout.Route path="/" title="Overview">
       {overviewContent}
+    </EntityLayout.Route>
+    
+    <EntityLayout.Route 
+      path="/code-insights"
+      title="Code Insights">
+      <EntityGithubInsightsContent />
+    </EntityLayout.Route>
+
+    <EntityLayout.Route path="/docs" title="Docs">
+      {techdocsContent}
     </EntityLayout.Route>
 
     <EntityLayout.Route path="/ci-cd" title="CI/CD">
       {cicdContent}
     </EntityLayout.Route>
-    
+
     <EntityLayout.Route path="/kubernetes" title="Kubernetes">
       <EntityKubernetesContent refreshIntervalMs={30000} />
     </EntityLayout.Route>
-    <EntityLayout.Route path="/prometheus" title="Prometheus">
-      <EntityPrometheusContent />
-    </EntityLayout.Route>
+    
     <EntityLayout.Route path="/api" title="API">
       <Grid container spacing={3} alignItems="stretch">
         <Grid item md={6}>
@@ -192,6 +205,11 @@ const serviceEntityPage = (
         </Grid>
       </Grid>
     </EntityLayout.Route>
+    
+    <EntityLayout.Route path="/prometheus" title="Prometheus">
+      <EntityPrometheusContent />
+    </EntityLayout.Route>
+
 
     <EntityLayout.Route path="/dependencies" title="Dependencies">
       <Grid container spacing={3} alignItems="stretch">
@@ -203,10 +221,13 @@ const serviceEntityPage = (
         </Grid>
       </Grid>
     </EntityLayout.Route>
-
-    <EntityLayout.Route path="/docs" title="Docs">
-      {techdocsContent}
+    
+    <EntityLayout.Route
+      path="/security-insights"
+      title="Security Insights">
+      <EntitySecurityInsightsContent />
     </EntityLayout.Route>
+
   </EntityLayout>
 );
 
@@ -215,11 +236,15 @@ const websiteEntityPage = (
     <EntityLayout.Route path="/" title="Overview">
       {overviewContent}
     </EntityLayout.Route>
-
+    <EntityLayout.Route path="/code-insights" title="Code Insights">
+      <EntityGithubInsightsContent />
+    </EntityLayout.Route>
+    <EntityLayout.Route path="/docs" title="Docs">
+      {techdocsContent}
+    </EntityLayout.Route>
     <EntityLayout.Route path="/ci-cd" title="CI/CD">
       {cicdContent}
     </EntityLayout.Route>
-
     <EntityLayout.Route path="/dependencies" title="Dependencies">
       <Grid container spacing={3} alignItems="stretch">
         <Grid item md={6}>
@@ -231,9 +256,12 @@ const websiteEntityPage = (
       </Grid>
     </EntityLayout.Route>
 
-    <EntityLayout.Route path="/docs" title="Docs">
-      {techdocsContent}
+    <EntityLayout.Route
+      path="/security-insights"
+      title="Security Insights">
+      <EntitySecurityInsightsContent />
     </EntityLayout.Route>
+
   </EntityLayout>
 );
 
