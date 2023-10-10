@@ -16,7 +16,7 @@ metadata:
       icon: Dashboard
       title: Open Site
     - url: https://github.com/backstage/backstage
-      icon: website
+      icon: cloud
       title: Powered By Backstage
     - url: https://backstage.spotify.com/
       icon: web
