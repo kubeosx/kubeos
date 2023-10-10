@@ -11,6 +11,25 @@ metadata:
     - backstage
     - idp
     - kubeos
+  links:
+    - url: http://localhost:3000/
+      icon: Dashboard
+      title: Open Site
+    - url: https://github.com/backstage/backstage
+      icon: website
+      title: Powered By Backstage
+    - url: https://backstage.spotify.com/
+      icon: web
+      title: Backstage Docs
+    - url: https://github.com/kubeosx/kubeos
+      icon: web
+      title: Official Docs
+    - url: https://github.com/kubeosx/kubeos/issues
+      title: Kubeos Support/Issues
+      icon: help
+    - url: https://github.com/backstage/backstage/issues
+      title: Backstage Support/Issues
+      icon: help
 spec:
   type: website
   owner: platform-engineering-team
