@@ -3,7 +3,7 @@ import { createRouter, createBuiltinActions  } from '@backstage/plugin-scaffolde
 import { Router } from 'express';
 import type { PluginEnvironment } from '../types';
 import { ScmIntegrations } from '@backstage/integration';
-
+import { dotnetNewAction, dotnetBuildAction, dotnetInstallTemplateAction } from '@plusultra/plugin-scaffolder-dotnet-backend'
 // packages/backend/src/plugins/scaffolder.ts
 import {
   createZipAction,
@@ -18,7 +18,7 @@ import {
   createJSONataAction,
   createYamlJSONataTransformAction,
   createJsonJSONataTransformAction,
-  createReplaceInFileAction
+  createReplaceInFileAction,
 } from '@roadiehq/scaffolder-backend-module-utils'
 
 export default async function createPlugin(
@@ -48,6 +48,9 @@ export default async function createPlugin(
     createYamlJSONataTransformAction(),
     createJsonJSONataTransformAction(),
     createReplaceInFileAction(),
+    dotnetNewAction(), 
+    dotnetBuildAction(),
+    dotnetInstallTemplateAction(),
     ...builtInActions
   ];
 
