@@ -63,7 +63,7 @@ metadata:
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: backstage-read-only
+  name: kubeos-read-only
 subjects:
   - kind: ServiceAccount
     name: kubeos 
