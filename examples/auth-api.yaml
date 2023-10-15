@@ -1,0 +1,24 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: auth-api
+  description: The dotapi API
+  tags:
+    - store
+    - rest
+  links:
+    - url: https://github.com/kubeosx/auth-api
+      icon: web
+      title: Github
+    - url: https://github.com/kubeosx/auth-api/issues
+      icon: web
+      title: Github Issues
+    - url: https://github.com/kubeosx/auth-api/blob/main/src/openapi.json
+      title: API Spec
+      icon: code
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: product
+  definition:
+    $text: ./auth-open-api.json

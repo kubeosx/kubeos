@@ -16,3 +16,4 @@ spec:
     - ./examples/systems.yaml
     - ./examples/domains.yaml
     - ./catalog-info.yaml
+    - ./examples/auth-api.yaml

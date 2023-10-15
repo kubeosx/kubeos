@@ -1,0 +1,85 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Authentication API",
+      "version": "1.0.0"
+    },
+    "paths": {
+      "/authenticate": {
+        "post": {
+          "summary": "Authenticate User",
+          "description": "Authenticate a user with credentials.",
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "username": {
+                      "type": "string",
+                      "description": "User's username"
+                    },
+                    "password": {
+                      "type": "string",
+                      "description": "User's password"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Authentication successful",
+              "content": {
+                "application/json": {
+                  "example": {
+                    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMjM0NTY3ODkwIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Unauthorized"
+            }
+          }
+        }
+      },
+      "/verify-policy": {
+        "post": {
+          "summary": "Verify User Policy",
+          "description": "Verify if a user has a specific policy.",
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "token": {
+                      "type": "string",
+                      "description": "User's access token"
+                    },
+                    "policy": {
+                      "type": "string",
+                      "description": "Policy to verify"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Policy verification successful"
+            },
+            "401": {
+              "description": "Policy verification failed"
+            }
+          }
+        }
+      }
+    }
+  }
+  

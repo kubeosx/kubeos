@@ -67,7 +67,7 @@ import {
   EntityPrometheusGraphCard,
 } from '@roadiehq/backstage-plugin-prometheus';
 import { EntityVaultCard } from '@backstage/plugin-vault';
-import { EntitySecurityInsightsContent } from '@roadiehq/backstage-plugin-security-insights';
+import { EntityGithubDependabotContent, EntitySecurityInsightsContent } from '@roadiehq/backstage-plugin-security-insights';
 import { EntityGithubInsightsContent } from '@roadiehq/backstage-plugin-github-insights';
 
 
@@ -149,15 +149,15 @@ const overviewContent = (
     <Grid item md={12} xs={12}>
       <EntityHasSubcomponentsCard variant="gridItem" />
     </Grid>
-    {/* <Grid item md={4} xs={12}>
+    <Grid item md={4} xs={12}>
       <EntityFluxGitRepositoriesCard />
     </Grid>
     <Grid item md={4} xs={12}>
       <EntityFluxKustomizationsCard />
-    </Grid> */}
-    {/* <Grid item md={8}>
+    </Grid> 
+    <Grid item md={8}>
       <EntityPrometheusAlertCard />
-    </Grid> */}
+    </Grid>
     <Grid item md={6} xs={12}>
       <EntityVaultCard />
     </Grid>
@@ -227,7 +227,14 @@ const serviceEntityPage = (
       title="Security Insights">
       <EntitySecurityInsightsContent />
     </EntityLayout.Route>
-
+    <EntityLayout.Route
+      path="/dependabot"
+      title="Dependabot"
+      // Uncomment the line below if you'd like to only show the tab on entities with the correct annotations already set
+      // if={isSecurityInsightsAvailable}
+    >
+      <EntityGithubDependabotContent />
+    </EntityLayout.Route>
   </EntityLayout>
 );
 
