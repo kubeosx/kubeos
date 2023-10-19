@@ -52,3 +52,4 @@ site
 examples/domains.yaml
 deploy/setup.md
 app-config.yaml
+deploy/setup.md

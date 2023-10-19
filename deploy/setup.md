@@ -1,9 +1,10 @@
+
+```
 brew install fluxcd/tap/flux
 
-export GITHUB_TOKEN=<your-token>
-export GITHUB_USER=<your-username>
+export GITHUB_TOKEN=ghp
+export GITHUB_USER=kubeosx
 
-flux check --pre
 
 flux bootstrap github \
   --owner=$GITHUB_USER \
@@ -11,3 +12,19 @@ flux bootstrap github \
   --branch=main \
   --path=./clusters/dev \
   --personal
+
+--- Windwos:
+
+set GITHUB_TOKEN=ghp
+set GITHUB_USER=kubeosx
+
+
+flux check --pre
+
+flux bootstrap github --owner=kubeosx --repository=kubeos-cluster --branch=main --path=./clusters/dev --personal
+
+  kubectl apply -f kubernetes-auth-setup.yam
+
+  kubectl get secret kubeos -o go-template='{{.data.token | base64decode}}'
+
+```       

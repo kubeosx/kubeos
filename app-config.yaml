@@ -1,9 +1,9 @@
 app:
-  title: CloudNxt
+  title: Kubeosx
   baseUrl: http://localhost:3000
 
 organization:
-  name: My Company
+  name: Kubeosx
 
 backend:
   # Used for enabling authentication, secret is shared by all backend plugins
@@ -44,6 +44,9 @@ integrations:
     #   token: ${GHE_TOKEN}
 
 proxy:
+  '/prometheus/api':
+    # url to the api and path of your hosted prometheus instance
+    target: http://localhost:9090/api/v1/
   ### Example for how to add a proxy endpoint for the frontend.
   ### A typical reason to do this is to handle HTTPS and CORS for internal services.
   # endpoints:
@@ -83,49 +86,54 @@ catalog:
     - allow: [Component, System, API, Resource, Location]
   locations:
     # Local example data, file locations are relative to the backend process, typically `packages/backend`
-    - type: file
-      target: ../../examples/entities.yaml
+    # - type: file
+    #   target: ../../examples/entities.yaml
 
     # Local example template
-    - type: file
-      target: ../../examples/template/template.yaml
-      rules:
-        - allow: [Template]
+    # - type: file
+    #   target: ../../examples/template/template.yaml
+    #   rules:
+    #     - allow: [Template]
 
     # Local example organizational data
-    - type: file
-      target: ../../examples/org.yaml
+    - type: url
+      target: https://github.com/kubeosx/kubeos/blob/main/location.yaml
       rules:
-        - allow: [User, Group]
+        - allow: [Group, Component, System, API, Resource, Location, User, Domain,Template]
 
-    # # Uncomment these lines to add more example data
-    # - type: url
-    #   target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all.yaml
-
-    # # Uncomment these lines to add an example org
-    # - type: url
-    #   target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/acme-corp.yaml
-    #   rules:
-    #     - allow: [User, Group]
+      
+    - type: url
+      target: https://github.com/kubeosx/kubeos-dotnet-gitops-template/blob/main/template.yaml
+      rules:
+        - allow: [Group, Component, System, API, Resource, Location, User, Domain,Template]
 
     - type: url
-      target: https://github.com/iamsourabh-in/backstage-node-ci-template/blob/main/template.yaml
+      target: https://github.com/kubeosx/kubeos-node-template/blob/main/template.yaml
       rules:
-        - allow: [Template]
+        - allow: [Group, Component, System, API, Resource, Location, User, Domain,Template]
+       
+    - type: url
+      target: https://github.com/kubeosx/kubeos-angular-template/blob/main/template.yaml
+      rules:
+        - allow: [Group, Component, System, API, Resource, Location, User, Domain,Template]
 
     - type: url
-      target: https://github.com/iamsourabh-in/backstage-dotnet-template/blob/main/template.yaml
+      target: https://github.com/kubeosx/kubeos-dotnet-template/blob/main/template.yaml
       rules:
-        - allow: [Template]
-
+        - allow: [Group, Component, System, API, Resource, Location, User, Domain,Template]
 
     - type: url
-      target: https://github.com/iamsourabh-in/testingapp/blob/main/backstage/location.yaml
+      target: https://github.com/kubeosx/kubeos-cluster/blob/main/catalog-info.yaml
       rules:
-        - allow: [Group, Component, System, API, Resource, Location, User, Domain]
+        - allow: [Group, Component, System, API, Resource, Location, User, Domain, Template]
         
+    - type: url
+      target: https://github.com/kubeosx/kubeos-baseline/blob/main/location.yaml
+      rules:
+        - allow: [Group, Component, System, API, Resource, Location, User, Domain,Template]
 
 
+        
 kubernetes:
   serviceLocatorMethod:
     type: multiTenant
@@ -137,4 +145,10 @@ kubernetes:
           authProvider: serviceAccount
           skipTLSVerify: true
           skipMetricsLookup: true
-          serviceAccountToken: ""
+          serviceAccountToken: eyJhbGciOiJSUzI1NiIsImtpZCI6IjdqZlpiSHZKcElZM3YxSHZKUjlIVmpFaFFvSXJVOGlla280Mms0WDIyeVUifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJkZWZhdWx0Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZWNyZXQubmFtZSI6Imt1YmVvcyIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50Lm5hbWUiOiJrdWJlb3MiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC51aWQiOiJiMDZkM2RkMi1jN2M4LTQ5MTItOGI5NC1lYTE5MDRjY2RmNWEiLCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6ZGVmYXVsdDprdWJlb3MifQ.gZDjMP4eVtLCeJQ7Zd6lbPSRkruBzslYieVztmqt-9K9fi8V3r66KdMV5PwCFYHB11NPtV_Ls84Osd0fTkCsS0bE9q-eZs6a83vzZECPoXSWWCbdjf8ewZUoWDqGfOY3w6vwEMy9Qk9wbdPu3p7uDI1v2lPQjQ4O7NkL1369Z5cbAPTw-7u8mPhGv3LmBm6GzAqTcXbrMewb-pRTFOkSYhwQXXshYTiIPBI7NFzc6_P9PqtCrc4rYOBnbIUeCjbL84VhbMBsQjtVYdlEEOH2LR1a5xMfwq_4lQGIjNJtVtR9aNWUE9VoS4l-zPIaJspx4VR-_U1ehYCRMhxa6yUhAQ
+
+vault:
+  baseUrl: http://127.0.0.1:8200
+  token: s.iq7LQVcFaM9no6J7CQf7MO5A
+  secretEngine: 'kv' # Optional. By default it uses 'secrets'. Can be overwritten by the annotation of the entity
+  # kvVersion: 2
