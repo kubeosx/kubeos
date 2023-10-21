@@ -69,7 +69,8 @@ import {
 import { EntityVaultCard } from '@backstage/plugin-vault';
 import { EntityGithubDependabotContent, EntitySecurityInsightsContent } from '@roadiehq/backstage-plugin-security-insights';
 import { EntityGithubInsightsContent } from '@roadiehq/backstage-plugin-github-insights';
-
+import { EntityGithubPullRequestsContent } from '@roadiehq/backstage-plugin-github-pull-requests';
+import { EntityGithubPullRequestsOverviewCard } from '@roadiehq/backstage-plugin-github-pull-requests';
 
 const techdocsContent = (
   <EntityTechdocsContent>
@@ -149,6 +150,9 @@ const overviewContent = (
     <Grid item md={12} xs={12}>
       <EntityHasSubcomponentsCard variant="gridItem" />
     </Grid>
+    <Grid item md={6}>
+        <EntityGithubPullRequestsOverviewCard />
+    </Grid>
     <Grid item md={4} xs={12}>
       <EntityFluxGitRepositoriesCard />
     </Grid>
@@ -190,7 +194,9 @@ const serviceEntityPage = (
     <EntityLayout.Route path="/ci-cd" title="CI/CD">
       {cicdContent}
     </EntityLayout.Route>
-
+    <EntityLayout.Route path="/pull-requests" title="Pull Requests">
+      <EntityGithubPullRequestsContent />
+    </EntityLayout.Route>
     <EntityLayout.Route path="/kubernetes" title="Kubernetes">
       <EntityKubernetesContent refreshIntervalMs={30000} />
     </EntityLayout.Route>
