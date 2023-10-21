@@ -4,6 +4,73 @@
 
 Welcome to the KubeOS Developer Portal, your one-stop platform for Kubernetes-based application development and management.
 
+![frontpage](https://github.com/kubeosx/kubeos/assets/22702292/adb27117-e970-4c6f-be1f-0ca89d91b15f)
+# Kubeos: Streamlining Development with Kubernetes
+
+Kubeos is a comprehensive internal developer platform designed to streamline the software development process within organizations. It empowers developers and managers by providing a unified environment for managing resources, deploying applications, and ensuring the efficiency and security of the development lifecycle.
+
+![image](https://github.com/kubeosx/kubeos/assets/22702292/60d81916-53cb-4181-bb04-7a161c76e8e8)
+
+## Key Features
+
+### Kubernetes Integration
+
+- **Kubernetes Power:** Kubeos leverages the power of Kubernetes for resource deployment and management. This ensures that all resources are managed according to best DevOps practices.
+
+### Flux for Repository Synchronization
+
+- **Repository Sync:** Flux is used to synchronize repositories, with a dedicated `kubeos-cluster` repository for managing resources using Kubernetes Kustomization.
+
+### GitHub Actions
+
+- **Automation:** GitHub Actions automates various development pipeline tasks, including building, testing, and generating OpenAPI specifications. This ensures consistency and reliability in the development process.
+
+### Standardization
+
+- **Consistency:** Kubeos helps establish and maintain development standards within the organization. This ensures that all projects adhere to the same practices and guidelines.
+
+### Backstage Feature Catalog
+
+- **Unified Platform:** Kubeos integrates with Backstage, providing a feature catalog that serves as a central hub for developers and managers to access and manage all resources in one place.
+
+### Dependency Tracking
+
+- **Visualizing Dependencies:** The platform offers a map view plugin to track dependencies at different hierarchy levels. Users can easily see which APIs a component consumes and which other APIs consume it.
+
+### Secret Management
+
+- **Secure Storage:** Kubeos keeps track of secrets stored in a secure vault for each service. This ensures that sensitive information is well-protected and can be accessed by authorized users only.
+
+### Pipeline Monitoring
+
+- **Visibility:** Kubeos provides comprehensive visibility into pipeline states and logs. Users can easily monitor the progress of their applications and identify and address any issues promptly.
+
+### Documentation and Readme
+
+- **Access to Information:** Technical documentation and readmes are readily available for components. This allows users to access all the information they need to work with the components efficiently.
+
+### Pod Interaction
+
+- **Troubleshooting Made Easy:** Users can execute commands within pods, view logs, and perform other pod-related actions. This simplifies the debugging and troubleshooting process, enhancing the overall development experience.
+
+## Benefits
+
+Kubeos offers a wide range of benefits for organizations:
+
+- **Efficiency:** Streamlined processes and automation lead to more efficient development and deployment.
+
+- **Visibility:** Comprehensive monitoring and dependency tracking enhance project visibility.
+
+- **Security:** Centralized secret management ensures the security of sensitive information.
+
+- **Consistency:** Standardization ensures that projects adhere to best practices.
+
+- **Simplicity:** Access to documentation and pod interaction simplifies development and troubleshooting.
+
+In summary, Kubeos is a powerful and extensible platform that empowers developers to create and manage Kubernetes applications effortlessly. It integrates essential tools and features into a unified ecosystem, making it a valuable asset for organizations engaged in Kubernetes-based application development.
+
+
+
 ## Overview
 
 KubeOS is designed to streamline the Kubernetes development workflow and empower developers to create and manage Kubernetes applications effortlessly. It leverages Backstage as its foundation, along with integrated Kubernetes and Flux plugins, making it a powerful and extensible platform for your development needs.
