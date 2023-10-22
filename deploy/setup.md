@@ -1,4 +1,3 @@
-
 ```
 brew install fluxcd/tap/flux
 
@@ -23,7 +22,7 @@ flux check --pre
 
 flux bootstrap github --owner=kubeosx --repository=kubeos-cluster --branch=main --path=./clusters/dev --personal
 
-  kubectl apply -f kubernetes-auth-setup.yam
+  kubectl apply -f kubernetes-auth-setup.yaml
 
   kubectl get secret kubeos -o go-template='{{.data.token | base64decode}}'
 

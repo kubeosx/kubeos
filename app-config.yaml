@@ -71,8 +71,8 @@ auth:
   providers: 
     github:
       development:
-        clientId: asd
-        clientSecret: asd
+        clientId: a # ${GITHUB_CLIENTID}
+        clientSecret: a # ${GITHUB_CLIENTSECRET}
 
 scaffolder:
   # see https://backstage.io/docs/features/software-templates/configuration for software template options
@@ -132,20 +132,24 @@ catalog:
       rules:
         - allow: [Group, Component, System, API, Resource, Location, User, Domain,Template]
 
+    - type: url
+      target: https://github.com/kubeosx/kubeos-github-workflows/blob/main/catalog-info.yaml
+      rules:
+        - allow: [Group, Component, System, API, Resource, Location, User, Domain,Template]
 
-        
+       
 kubernetes:
   serviceLocatorMethod:
     type: multiTenant
   clusterLocatorMethods:
     - type: config
       clusters:
-        - url: https://kubernetes.docker.internal:6443
+        - url: https://127.0.0.1:42137 #https://kubernetes.docker.internal:6443
           name: dockerk8
           authProvider: serviceAccount
           skipTLSVerify: true
           skipMetricsLookup: true
-          serviceAccountToken: eyJhbGciOiJSUzI1NiIsImtpZCI6IjdqZlpiSHZKcElZM3YxSHZKUjlIVmpFaFFvSXJVOGlla280Mms0WDIyeVUifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJkZWZhdWx0Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZWNyZXQubmFtZSI6Imt1YmVvcyIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50Lm5hbWUiOiJrdWJlb3MiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC51aWQiOiJiMDZkM2RkMi1jN2M4LTQ5MTItOGI5NC1lYTE5MDRjY2RmNWEiLCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6ZGVmYXVsdDprdWJlb3MifQ.gZDjMP4eVtLCeJQ7Zd6lbPSRkruBzslYieVztmqt-9K9fi8V3r66KdMV5PwCFYHB11NPtV_Ls84Osd0fTkCsS0bE9q-eZs6a83vzZECPoXSWWCbdjf8ewZUoWDqGfOY3w6vwEMy9Qk9wbdPu3p7uDI1v2lPQjQ4O7NkL1369Z5cbAPTw-7u8mPhGv3LmBm6GzAqTcXbrMewb-pRTFOkSYhwQXXshYTiIPBI7NFzc6_P9PqtCrc4rYOBnbIUeCjbL84VhbMBsQjtVYdlEEOH2LR1a5xMfwq_4lQGIjNJtVtR9aNWUE9VoS4l-zPIaJspx4VR-_U1ehYCRMhxa6yUhAQ
+          serviceAccountToken: ey # ${SA_TOKEN}
 
 vault:
   baseUrl: http://127.0.0.1:8200
