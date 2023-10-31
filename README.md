@@ -11,6 +11,9 @@ Kubeos is a comprehensive internal developer platform designed to streamline the
 
 ![image](https://github.com/kubeosx/kubeos/assets/22702292/60d81916-53cb-4181-bb04-7a161c76e8e8)
 
+![Alt text](./design.svg)
+<!-- <img src="./design.svg"> -->
+
 ## Key Features
 
 ### Kubernetes Integration
