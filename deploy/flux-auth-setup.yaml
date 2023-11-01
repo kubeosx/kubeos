@@ -29,7 +29,7 @@ roleRef:
   name: flux-view
 subjects:
   - kind: ServiceAccount
-    name: backstage # replace with the name of the SA that your Backstage runs as
+    name: kubeos # replace with the name of the SA that your Backstage runs as
     namespace: default
 
 ---
@@ -71,6 +71,6 @@ roleRef:
   name: patch-flux-resources
 subjects:
   - kind: ServiceAccount
-    name: default # replace with the name of the SA that your Backstage runs as
+    name: kubeos # replace with the name of the SA that your Backstage runs as
     namespace: default
 
