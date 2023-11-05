@@ -3,7 +3,9 @@ Setup this project to work for yourself.
 ### Install Vault into the cluster
 
 ```bash
-helm install vault hashicorp/vault --namespace=vault-backend --dry-run=client
+kubectl create ns vault-backend
+
+helm install vault hashicorp/vault --namespace=vault-backend #--dry-run=client
  
 helm install vault vault --repo https://helm.releases.hashicorp.com \
   --namespace=vault-backend \
@@ -13,8 +15,6 @@ helm install vault vault --repo https://helm.releases.hashicorp.com \
 
 kubectl exec vault-0 -n vault-backend -- vault operator init -key-shares=1 -key-threshold=1 -format=json > keys.json
 
-# if namespace if default
-kubectl exec vault-0 -n default -- vault operator init -key-shares=1 -key-threshold=1 -format=json > keys.json
 
 VAULT_UNSEAL_KEY=$(cat keys.json | jq -r ".unseal_keys_b64[]")
 
@@ -23,6 +23,11 @@ VAULT_ROOT_KEY=$(cat keys.json | jq -r ".root_token")
 kubectl exec vault-0 -n vault-backend -- vault operator unseal $VAULT_UNSEAL_KEY
 
 echo $VAULT_ROOT_KEY
+
+##############
+# Copy this key in kubeos config
+###########
+
 
 kubectl exec vault-0 -it -n vault-backend -- sh 
 $ vault login $VAULT_ROOT_KEY
