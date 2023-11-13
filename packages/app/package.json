@@ -53,6 +53,7 @@
     "@roadiehq/backstage-plugin-prometheus": "^2.7.0",
     "@roadiehq/backstage-plugin-security-insights": "^2.3.9",
     "@weaveworksoss/backstage-plugin-flux": "^0.8.3",
+    "@workm8/backstage-docker-tags": "^1.0.5",
     "history": "^5.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

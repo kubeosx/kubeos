@@ -58,12 +58,12 @@ import {
 import { TechDocsAddons } from '@backstage/plugin-techdocs-react';
 import { ReportIssue } from '@backstage/plugin-techdocs-module-addons-contrib';
 import { EntityKubernetesContent } from '@backstage/plugin-kubernetes';
-import { EntityFluxGitRepositoriesCard,EntityFluxKustomizationsCard } from '@weaveworksoss/backstage-plugin-flux';
+import { EntityFluxGitRepositoriesCard, EntityFluxKustomizationsCard } from '@weaveworksoss/backstage-plugin-flux';
 import {
   EntityPrometheusContent,
 } from '@roadiehq/backstage-plugin-prometheus';
 import {
-  EntityPrometheusAlertCard,  
+  EntityPrometheusAlertCard,
   EntityPrometheusGraphCard,
 } from '@roadiehq/backstage-plugin-prometheus';
 import { EntityVaultCard } from '@backstage/plugin-vault';
@@ -71,6 +71,13 @@ import { EntityGithubDependabotContent, EntitySecurityInsightsContent } from '@r
 import { EntityGithubInsightsContent } from '@roadiehq/backstage-plugin-github-insights';
 import { EntityGithubPullRequestsContent } from '@roadiehq/backstage-plugin-github-pull-requests';
 import { EntityGithubPullRequestsOverviewCard } from '@roadiehq/backstage-plugin-github-pull-requests';
+import { DockerTagsTableWidget } from '@workm8/backstage-docker-tags';
+
+const dockerTagsContent = (
+  <DockerTagsTableWidget
+    heading="Docker"
+    columns={['name', 'username', 'status']} />
+);
 
 const techdocsContent = (
   <EntityTechdocsContent>
@@ -141,7 +148,7 @@ const overviewContent = (
     <Grid item md={12} xs={12}>
       <EntityLinksCard />
     </Grid>
-    <Grid item md={6}>
+    <Grid item md={6} xs={12}>
       <EntityAboutCard variant="gridItem" />
     </Grid>
     <Grid item md={6} xs={12}>
@@ -150,22 +157,22 @@ const overviewContent = (
     <Grid item md={6} xs={12}>
       <EntityHasSubcomponentsCard variant="gridItem" />
     </Grid>
-    <Grid item md={6}>
-        <EntityGithubPullRequestsOverviewCard />
+    <Grid item md={6} xs={12}>
+      <EntityGithubPullRequestsOverviewCard />
+    </Grid>
+    <Grid item md={6} xs={12}>
+      {dockerTagsContent}
+    </Grid>
+    <Grid item md={6} xs={12}>
+      <EntityVaultCard />
     </Grid>
     <Grid item md={6} xs={12}>
       <EntityFluxGitRepositoriesCard />
     </Grid>
     <Grid item md={6} xs={12}>
       <EntityFluxKustomizationsCard />
-    </Grid> 
-    {/* <Grid item md={8}>
-      <EntityPrometheusAlertCard />
-    </Grid> */}
-    <Grid item md={6} xs={12}>
-      <EntityVaultCard />
     </Grid>
-{/* 
+    {/* 
     <Grid item md={6}>
       <EntityPrometheusGraphCard />
     </Grid> */}
@@ -176,12 +183,12 @@ const overviewContent = (
 
 const serviceEntityPage = (
   <EntityLayout>
-    
+
     <EntityLayout.Route path="/" title="Overview">
       {overviewContent}
     </EntityLayout.Route>
-    
-    <EntityLayout.Route 
+
+    <EntityLayout.Route
       path="/code-insights"
       title="Code Insights">
       <EntityGithubInsightsContent />
@@ -200,7 +207,7 @@ const serviceEntityPage = (
     <EntityLayout.Route path="/kubernetes" title="Kubernetes">
       <EntityKubernetesContent refreshIntervalMs={30000} />
     </EntityLayout.Route>
-    
+
     <EntityLayout.Route path="/api" title="API">
       <Grid container spacing={3} alignItems="stretch">
         <Grid item md={6}>
@@ -211,7 +218,7 @@ const serviceEntityPage = (
         </Grid>
       </Grid>
     </EntityLayout.Route>
-    
+
     <EntityLayout.Route path="/prometheus" title="Prometheus">
       <EntityPrometheusContent />
     </EntityLayout.Route>
@@ -227,7 +234,7 @@ const serviceEntityPage = (
         </Grid>
       </Grid>
     </EntityLayout.Route>
-    
+
     <EntityLayout.Route
       path="/security-insights"
       title="Security Insights">
@@ -236,8 +243,8 @@ const serviceEntityPage = (
     <EntityLayout.Route
       path="/dependabot"
       title="Dependabot"
-      // Uncomment the line below if you'd like to only show the tab on entities with the correct annotations already set
-      // if={isSecurityInsightsAvailable}
+    // Uncomment the line below if you'd like to only show the tab on entities with the correct annotations already set
+    // if={isSecurityInsightsAvailable}
     >
       <EntityGithubDependabotContent />
     </EntityLayout.Route>
