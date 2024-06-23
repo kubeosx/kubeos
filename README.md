@@ -138,6 +138,8 @@ Happy coding with KubeOS!
 To start the app, run:
 
 ```sh
+npm install --global yarn
+
 yarn install
 yarn dev
 ```
