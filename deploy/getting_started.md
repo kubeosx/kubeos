@@ -1,15 +1,29 @@
 #Kubeos Setup MVP
 
 ## Setup Kubernetes cluster
+sudo apt install net-tools
+git config --global user.email
+
+
+
 
 ### Create a Kind cluster.
 - We will use config defined in the deploy/kind/kind-config.yaml to spin up the cluster
 
 ```bash
 kind create cluster --config deploy/kind/kind-config.yaml
-```
 
+kubectl get pods -A
+```
+## Install Helm
+
+```bash
+$ curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+$ chmod 700 get_helm.sh
+$ ./get_helm.sh
+```
 ## Setup Hashicorp Vault
+
 
 ### Install Vault in the cluster
 ```bash
@@ -25,6 +39,11 @@ helm install vault vault --repo https://helm.releases.hashicorp.com \
   --namespace=vault-backend \
   --set server.enabled=false \
   --set injector.enabled=true \
+
+
+  OR 
+
+  helm install vault vault --repo https://helm.releases.hashicorp.com  --namespace=vault-backend  --set server.enabled=false  --set injector.enabled=true 
 
 ```
 
@@ -102,16 +121,30 @@ kubectl get secret kubeos -o go-template='{{.data.token | base64decode}}'
 # Copy this output secret in kubeos config
 ##########################################
 
+#Setup Vault Sync before any deployment sto create role, ITs a Job
+
+git clone https://github.com/kubeosx/kubeos-vault-sync.git
+
+Change The env file for VAULT_TOKEN
+
+cd kubeos-vault-sync
+
+kubectl deploy
+
 ```
 
 ### Sync your k8 cluster using kubeos-cluster repo
 
 - Setup flux to sync flux repo with cluster
 ```bash
+#install flux 
+
 #linux
 brew install fluxcd/tap/flux
 
-export GITHUB_TOKEN=ghp
+curl -s https://fluxcd.io/install.sh | sudo bash
+
+export GITHUB_TOKEN=ghp_xxxx
 export GITHUB_USER=kubeosx
 
 flux bootstrap github \
@@ -120,6 +153,12 @@ flux bootstrap github \
   --branch=main \
   --path=./clusters/dev \
   --personal
+
+# setup client id and secret for backstage  app-config 
+
+      development:
+        clientId: xxx
+        clientSecret: xxx
 
 #Windows
 
